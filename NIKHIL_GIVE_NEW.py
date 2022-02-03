@@ -130,7 +130,7 @@ def createFV_individual(data_train, data_test, fs):
           final=concated
       else:
           final= np.hstack((final, concated))
-      print(j)
+      # print(j)
   print(final.shape)
 
   final=final.T
@@ -209,7 +209,7 @@ def createFV_individual(data_train, data_test, fs):
       HTFV=HTFV_temp
     else:
       HTFV=np.vstack((HTFV, HTFV_temp))
-    print(j)
+    # print(j)
 
   final=np.hstack((final, HTFV))
   final.shape
@@ -293,7 +293,7 @@ def createFV_individual(data_train, data_test, fs):
           final_t=concated
       else:
           final_t= np.hstack((final_t, concated))
-      print(j)
+      # print(j)
   print(final_t.shape)
 
   final_t=final_t.T
@@ -377,7 +377,7 @@ def createFV_individual(data_train, data_test, fs):
       HTFV_t=np.vstack((HTFV_t, HTFV_temp))
 
 
-    print(j)
+    # print(j)
 
   final_t=np.hstack((final_t, HTFV_t))
   final_t.shape
@@ -443,17 +443,16 @@ def NIKHIL_GIVE_NEW(args):
             cv=5,
             verbose=1,
             scoring="accuracy",
-            max_features=5,
-            n_population=300,
+            n_population=64,
             crossover_proba=0.5,
             mutation_proba=0.2,
-            n_generations=40,
+            n_generations=50,
             crossover_independent_proba=0.5,
             mutation_independent_proba=0.05,
             tournament_size=3,
             n_gen_no_change=10,
             caching=True,
-            n_jobs=100,)
+            n_jobs=64,)
             selector = selector.fit(df_train_temp.values, labels_train_loop[train_index])
             acc.append(selector.score(df_test_temp.values, labels_train_loop[test_index]))
         accd[str(i)]=sum(acc)/len(acc)

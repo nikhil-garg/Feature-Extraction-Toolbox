@@ -10,6 +10,9 @@ def args():
     parser.add_argument(
         "--dataset", default="bci3", type=str, help="Dataset(BCI3)"
     )
+    parser.add_argument(
+        "--run", default="1", type=int, help="Trial run"
+    )
 
     my_args = parser.parse_args()
 
